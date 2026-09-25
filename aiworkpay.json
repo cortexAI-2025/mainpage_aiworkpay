@@ -18,6 +18,15 @@
     {"id": "custom-agent", "name_fr": "Agent métier sur mesure", "name_en": "Custom industry agent", "capabilities": ["custom workflows", "API integration", "supervision", "traceability"]}
   ],
   "human_in_the_loop": {"name": "Payworker layer", "purpose": "Delegation of verifiable micro-tasks requiring human judgment or real-world action", "application_url": "https://app.aiworkpay.fr/"},
+  "portfolio": [
+    {"name":"AIWorkPay","category":"Agent orchestration","description":"Autonomous workflows with verifiable human micro-task delegation."},
+    {"name":"Taqnin ID Batch","category":"Compliance and traceability","description":"Intelligent batch records, quality controls, documents, and audit trails."},
+    {"name":"RxCann","category":"Specialized healthcare","description":"Professional assistant for controlled medical cannabis product information and workflows."},
+    {"name":"Daba Cash","category":"Recommerce","description":"AI-assisted item qualification, valuation, and transaction workflows."},
+    {"name":"Baraka Box","category":"Food waste reduction","description":"Surplus-food marketplace with recommendations and availability forecasting."},
+    {"name":"AFUS","category":"Home services","description":"Needs qualification, provider matching, and service management."},
+    {"name":"Tabdal","category":"Property","description":"Peer-to-peer property search, listing qualification, and intelligent matching."}
+  ],
   "engagement_process": ["assessment", "scoped MVP", "business integration", "supervision and iteration"],
   "contact_url": "mailto:contact@aiworkpay.fr"
 }

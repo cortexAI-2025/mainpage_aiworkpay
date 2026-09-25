@@ -12,10 +12,12 @@
   },
   "audience": ["TPE", "PME", "SME", "business owners", "operations teams"],
   "services": [
-    {"id": "sales-agent", "name_fr": "Agent commercial autonome", "name_en": "Autonomous sales agent", "capabilities": ["opportunity discovery", "lead qualification", "proposal preparation", "follow-up organization"]},
-    {"id": "administrative-agent", "name_fr": "Agent administratif autonome", "name_en": "Autonomous administrative agent", "capabilities": ["request intake", "document classification", "case tracking", "deadline alerts"]},
-    {"id": "support-agent", "name_fr": "Agent de support client", "name_en": "Customer support agent", "capabilities": ["contextual response", "request routing", "knowledge retrieval", "controlled escalation"]},
-    {"id": "custom-agent", "name_fr": "Agent métier sur mesure", "name_en": "Custom industry agent", "capabilities": ["custom workflows", "API integration", "supervision", "traceability"]}
+    {"id":"ai-website","name_fr":"Site web avec IA intégrée","name_en":"AI-powered website","capabilities":["business chatbot","visitor qualification","sales automation","e-commerce"]},
+    {"id":"ai-app","name_fr":"Application web et mobile IA","name_en":"AI web and mobile application","capabilities":["Android","iOS","web application","document analysis","computer vision"]},
+    {"id":"autonomous-agent","name_fr":"Agent autonome sur mesure","name_en":"Custom autonomous agent","capabilities":["agent orchestration","business integrations","human-in-the-loop","traceability"]},
+    {"id":"audit-automation","name_fr":"Audit IA et automatisation","name_en":"AI audit and automation","capabilities":["process mapping","ROI assessment","workflow automation","integrations"]},
+    {"id":"ai-marketing","name_fr":"Marketing digital piloté par IA","name_en":"AI-driven digital marketing","capabilities":["campaign strategy","ad creative","landing pages","targeting","conversion optimization"]},
+    {"id":"ai-integration-security","name_fr":"Intégration, sécurité et maintenance IA","name_en":"AI integration, security and maintenance","capabilities":["software integration","technical audit","data protection","monitoring","ongoing support"]}
   ],
   "human_in_the_loop": {"name": "Payworker layer", "purpose": "Delegation of verifiable micro-tasks requiring human judgment or real-world action", "application_url": "https://app.aiworkpay.fr/"},
   "portfolio": [

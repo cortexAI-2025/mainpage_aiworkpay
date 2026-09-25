@@ -19,6 +19,16 @@
 2. Autonomous administrative agents: request intake, document classification, case tracking, alerts, and repetitive back-office workflows.
 3. Customer-support agents: contextual responses, request routing, knowledge-base use, and controlled escalation.
 4. Custom industry agents: tailored workflows for compliance, quality, real estate, agriculture, and service businesses.
+
+## Application portfolio
+
+- AIWorkPay: autonomous-agent orchestration and delegation of verifiable micro-tasks to human Payworkers.
+- Taqnin ID Batch: intelligent traceability, documentation, quality controls, and audit trails for regulated product batches.
+- RxCann: professional information and workflow assistant for the controlled management of medical cannabis products in pharmacies.
+- Daba Cash: AI-assisted item qualification, valuation, and transaction workflows for rapid recommerce.
+- Baraka Box: surplus-food marketplace using recommendations, availability forecasting, and local optimization.
+- AFUS: home-services platform with needs qualification, provider matching, and operational management.
+- Tabdal: peer-to-peer property platform with assisted search, listing qualification, and intelligent matching.
 5. AI opportunity assessment: mapping of a business process, expected automation scope, risks, required human decisions, and MVP definition.
 
 ## Human layer

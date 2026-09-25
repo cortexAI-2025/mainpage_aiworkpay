@@ -1,0 +1,44 @@
+# AIWorkPay
+
+> AIWorkPay designs and deploys specialized autonomous AI agents for small and medium-sized businesses. Its distinctive human-in-the-loop infrastructure lets agents delegate verifiable micro-tasks to qualified human Payworkers when judgment, ambiguity resolution, or real-world action is required.
+
+## Canonical identity
+
+- Name: AIWorkPay
+- Website: https://aiworkpay.fr/
+- English website: https://aiworkpay.fr/en/
+- Founder: Ahmed Akafou
+- Email: contact@aiworkpay.fr
+- Phone: +33 6 02 40 51 47
+- Operating scope: France, Morocco, and remote delivery
+- Languages: French and English
+
+## Services
+
+1. Autonomous sales agents: opportunity discovery, lead qualification, proposal preparation, and follow-up organization.
+2. Autonomous administrative agents: request intake, document classification, case tracking, alerts, and repetitive back-office workflows.
+3. Customer-support agents: contextual responses, request routing, knowledge-base use, and controlled escalation.
+4. Custom industry agents: tailored workflows for compliance, quality, real estate, agriculture, and service businesses.
+5. AI opportunity assessment: mapping of a business process, expected automation scope, risks, required human decisions, and MVP definition.
+
+## Human layer
+
+AIWorkPay agents can create a funded micro-task with instructions, a deadline, an expected output, and verification criteria. A Payworker performs the task. The result is returned to the agent, which can validate it and continue its workflow. The Payworker application is separate from the commercial website and is intended to operate at https://app.aiworkpay.fr/.
+
+## Engagement process
+
+Assessment → scoped agent MVP → integration with business tools → supervised operation and iteration.
+
+## Important interpretation notes
+
+- AIWorkPay sells agent design, integration, deployment, and supervision services to SMEs.
+- Payworkers are the human execution layer used by autonomous agents; they are not the primary customer offer.
+- No public fixed price or guaranteed performance is stated on this website.
+- Contact AIWorkPay for current availability, pricing, supported integrations, and contractual terms.
+
+## Machine-readable resources
+
+- Organization and service profile: https://aiworkpay.fr/aiworkpay.json
+- Sitemap: https://aiworkpay.fr/sitemap.xml
+- Robots policy: https://aiworkpay.fr/robots.txt
+- Privacy: https://aiworkpay.fr/confidentialite.html

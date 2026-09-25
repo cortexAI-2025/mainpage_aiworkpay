@@ -10,8 +10,18 @@ document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('diagnostic-form')?.addEventListener('submit',event=>{
   event.preventDefault();
   const data=new FormData(event.currentTarget);
-  const subject=`Demande de diagnostic IA — ${data.get('company')}`;
-  const body=[
+  const english=document.documentElement.lang==='en';
+  const subject=english?`AI assessment request — ${data.get('company')}`:`Demande de diagnostic IA — ${data.get('company')}`;
+  const body=(english?[
+    `Name: ${data.get('name')}`,
+    `Company: ${data.get('company')}`,
+    `Email: ${data.get('email')}`,
+    `Phone: ${data.get('phone')||'Not provided'}`,
+    `Priority: ${data.get('priority')}`,
+    '',
+    'Process to automate:',
+    data.get('need')
+  ]:[
     `Nom : ${data.get('name')}`,
     `Entreprise : ${data.get('company')}`,
     `E-mail : ${data.get('email')}`,
@@ -20,6 +30,6 @@ document.getElementById('diagnostic-form')?.addEventListener('submit',event=>{
     '',
     'Processus à automatiser :',
     data.get('need')
-  ].join('\n');
+  ]).join('\n');
   window.location.href=`mailto:contact@aiworkpay.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });

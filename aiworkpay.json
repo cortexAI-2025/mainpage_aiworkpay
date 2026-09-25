@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "canonical_url": "https://aiworkpay.fr/",
+  "organization": {
+    "name": "AIWorkPay",
+    "founder": "Ahmed Akafou",
+    "description": "Agentic engineering company designing autonomous AI agents for SMEs with a human Payworker delegation layer.",
+    "email": "contact@aiworkpay.fr",
+    "telephone": "+33602405147",
+    "languages": ["fr", "en"],
+    "service_areas": ["France", "Morocco", "Remote"]
+  },
+  "audience": ["TPE", "PME", "SME", "business owners", "operations teams"],
+  "services": [
+    {"id": "sales-agent", "name_fr": "Agent commercial autonome", "name_en": "Autonomous sales agent", "capabilities": ["opportunity discovery", "lead qualification", "proposal preparation", "follow-up organization"]},
+    {"id": "administrative-agent", "name_fr": "Agent administratif autonome", "name_en": "Autonomous administrative agent", "capabilities": ["request intake", "document classification", "case tracking", "deadline alerts"]},
+    {"id": "support-agent", "name_fr": "Agent de support client", "name_en": "Customer support agent", "capabilities": ["contextual response", "request routing", "knowledge retrieval", "controlled escalation"]},
+    {"id": "custom-agent", "name_fr": "Agent métier sur mesure", "name_en": "Custom industry agent", "capabilities": ["custom workflows", "API integration", "supervision", "traceability"]}
+  ],
+  "human_in_the_loop": {"name": "Payworker layer", "purpose": "Delegation of verifiable micro-tasks requiring human judgment or real-world action", "application_url": "https://app.aiworkpay.fr/"},
+  "engagement_process": ["assessment", "scoped MVP", "business integration", "supervision and iteration"],
+  "contact_url": "mailto:contact@aiworkpay.fr"
+}

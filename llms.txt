@@ -15,10 +15,12 @@
 
 ## Services
 
-1. Autonomous sales agents: opportunity discovery, lead qualification, proposal preparation, and follow-up organization.
-2. Autonomous administrative agents: request intake, document classification, case tracking, alerts, and repetitive back-office workflows.
-3. Customer-support agents: contextual responses, request routing, knowledge-base use, and controlled escalation.
-4. Custom industry agents: tailored workflows for compliance, quality, real estate, agriculture, and service businesses.
+1. AI-powered websites: corporate, e-commerce, and business platforms with conversational assistants, visitor qualification, and sales automation.
+2. AI web and mobile applications: Android, iOS, and web products with recommendations, document analysis, computer vision, or custom AI capabilities.
+3. Autonomous agents: sales, administrative, customer-support, and industry agents connected to business systems and supervised through measurable goals.
+4. AI audit and process automation: process mapping, opportunity identification, ROI estimates, integrations, and repetitive-work automation.
+5. AI-driven digital marketing: strategy, advertising campaigns, landing pages, content production, targeting, measurement, and optimization.
+6. AI integration, security, and maintenance: AI upgrades for existing software, technical reviews, data protection, monitoring, cost optimization, and ongoing support.
 
 ## Application portfolio
 

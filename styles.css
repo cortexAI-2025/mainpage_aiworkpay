@@ -15,3 +15,8 @@
 :where(a,button,input,textarea,select):focus-visible{outline:3px solid #227bdb;outline-offset:3px}
 @media(max-width:700px){#faq .steps{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Bot-trap field: hidden visually and from keyboard navigation */
+.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.form-status{min-height:1.5em;font-weight:600}
+.diagnostic-form button:disabled{opacity:.65;cursor:wait}

@@ -42,3 +42,7 @@ document.querySelectorAll('[data-service]').forEach(link=>{
     if(field){field.value=link.dataset.service;field.dispatchEvent(new Event('change',{bubbles:true}));}
   });
 });
+
+// Preselect the service when visitors arrive from a dedicated service page.
+const requestedService=new URLSearchParams(window.location.search).get('service');
+if(requestedService){const field=document.getElementById('requested-service');if(field&&Array.from(field.options).some(option=>option.value===requestedService)){field.value=requestedService;}}

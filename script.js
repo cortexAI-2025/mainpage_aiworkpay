@@ -9,29 +9,27 @@ if('IntersectionObserver' in window){
 }else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
 const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
 
-document.getElementById('diagnostic-form')?.addEventListener('submit',event=>{
+// Native POST remains available if JavaScript is disabled or the AJAX request fails.
+const diagnosticForm=document.getElementById('diagnostic-form');
+diagnosticForm?.addEventListener('submit',async event=>{
+  if(!diagnosticForm.reportValidity())return;
   event.preventDefault();
-  const data=new FormData(event.currentTarget);
   const english=document.documentElement.lang==='en';
-  const subject=english?`AI assessment request — ${data.get('company')}`:`Demande de diagnostic IA — ${data.get('company')}`;
-  const body=(english?[
-    `Name: ${data.get('name')}`,
-    `Company: ${data.get('company')}`,
-    `Email: ${data.get('email')}`,
-    `Phone: ${data.get('phone')||'Not provided'}`,
-    `Priority: ${data.get('priority')}`,
-    '',
-    'Process to automate:',
-    data.get('need')
-  ]:[
-    `Nom : ${data.get('name')}`,
-    `Entreprise : ${data.get('company')}`,
-    `E-mail : ${data.get('email')}`,
-    `Téléphone : ${data.get('phone')||'Non renseigné'}`,
-    `Priorité : ${data.get('priority')}`,
-    '',
-    'Processus à automatiser :',
-    data.get('need')
-  ]).join('\n');
-  window.location.href=`mailto:contact@aiworkpay.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const status=document.getElementById('form-status');
+  const submit=diagnosticForm.querySelector('button[type="submit"]');
+  const data=new FormData(diagnosticForm);
+  if(data.get('_honey'))return;
+  submit.disabled=true;
+  if(status)status.textContent=english?'Sending your request…':'Envoi de votre demande…';
+  try{
+    const response=await fetch('https://formsubmit.co/ajax/contact@aiworkpay.fr',{
+      method:'POST',body:data,headers:{Accept:'application/json'}
+    });
+    const result=await response.json();
+    if(!response.ok||result.success===false||result.success==='false')throw new Error('Delivery not confirmed');
+    diagnosticForm.reset();
+    if(status)status.textContent=english?'Request submitted. If this is the first submission, email activation may be required before delivery.':'Demande transmise. Une activation par e-mail peut être nécessaire avant la première réception.';
+  }catch(error){
+    if(status)status.textContent=english?'Unable to confirm delivery. Please email contact@aiworkpay.fr directly.':'Envoi non confirmé. Écrivez directement à contact@aiworkpay.fr.';
+  }finally{submit.disabled=false;}
 });

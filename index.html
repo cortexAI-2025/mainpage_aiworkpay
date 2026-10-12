@@ -62,12 +62,12 @@
       <div class="hero-visual reveal" aria-label="Schéma de fonctionnement AIWorkPay">
         <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
         <div class="core-card">
-          <div class="core-top"><span class="live-dot"></span> Agent opérationnel</div>
+          <div class="core-top"><span class="live-dot"></span> Exemple illustratif — agent commercial</div>
           <div class="core-icon">A</div>
           <h2>Sales Agent</h2>
-          <p>Pipeline en cours</p>
-          <div class="metric"><span>Prospects qualifiés</span><strong>24</strong></div>
-          <div class="metric"><span>Actions autonomes</span><strong>87%</strong></div>
+          <p>Scénario fictif de démonstration</p>
+          <div class="metric"><span>Prospects (exemple)</span><strong>24</strong></div>
+          <div class="metric"><span>Actions (exemple)</span><strong>87%</strong></div>
           <div class="metric accent"><span>Délégation humaine</span><strong>3</strong></div>
         </div>
         <div class="float-card card-a"><span>01</span> Analyse terminée</div>
@@ -165,6 +165,16 @@
       </div>
     </section>
 
+
+    <section class="section-shell section" id="faq" aria-labelledby="faq-title">
+      <div class="section-heading"><div><span class="kicker">Questions fréquentes</span><h2 id="faq-title">Comprendre notre accompagnement IA</h2></div></div>
+      <div class="steps">
+        <article class="step"><h3>Quel budget pour un agent IA ?</h3><p>Le budget dépend des outils à connecter, du niveau d’autonomie et des contrôles requis. Décrivez votre processus pour obtenir une estimation adaptée, sans engagement de résultat.</p></article>
+        <article class="step"><h3>Peut-on connecter un agent à nos outils ?</h3><p>Nous étudions les connexions possibles avec vos e-mails, CRM, documents, applications et API selon leurs capacités techniques et autorisations.</p></article>
+        <article class="step"><h3>Un humain peut-il valider les actions sensibles ?</h3><p>Oui. Le périmètre d’autonomie et les validations humaines sont définis pendant le diagnostic, selon le risque et les exigences métier.</p></article>
+        <article class="step"><h3>Comment commencer ?</h3><p>Présentez le processus à automatiser via le diagnostic IA. Nous définissons ensuite un périmètre pilote, les contraintes et les étapes de déploiement.</p></article>
+      </div>
+    </section>
     <section class="section-shell section diagnostic" id="diagnostic">
       <div class="diagnostic-copy reveal">
         <span class="kicker">Diagnostic initial</span>
@@ -172,14 +182,14 @@
         <p>Décrivez-nous la tâche qui mobilise votre équipe. Nous vous répondrons avec un premier périmètre d’automatisation réaliste.</p>
         <div class="contact-lines"><a href="mailto:contact@aiworkpay.fr">contact@aiworkpay.fr</a><a href="tel:+33602405147">+33 6 02 40 51 47</a></div>
       </div>
-      <form class="diagnostic-form reveal" id="diagnostic-form">
+      <form class="diagnostic-form reveal" id="diagnostic-form" action="https://formsubmit.co/contact@aiworkpay.fr" method="POST" accept-charset="UTF-8">\n        <input type="hidden" name="_subject" value="AIWorkPay — demande de diagnostic IA">\n        <input type="hidden" name="_captcha" value="true">\n        <input type="hidden" name="_template" value="table">\n        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
         <div class="field-row"><label>Nom<input name="name" required autocomplete="name" placeholder="Votre nom"></label><label>Entreprise<input name="company" required autocomplete="organization" placeholder="Nom de l’entreprise"></label></div>
         <div class="field-row"><label>E-mail professionnel<input name="email" type="email" required autocomplete="email" placeholder="vous@entreprise.fr"></label><label>Téléphone<input name="phone" type="tel" autocomplete="tel" placeholder="+33..."></label></div>
         <label>Processus à automatiser<textarea name="need" required rows="4" placeholder="Décrivez la tâche, sa fréquence et le résultat attendu..."></textarea></label>
         <label>Priorité<select name="priority"><option>Explorer une opportunité</option><option>Lancer un prototype</option><option>Résoudre un besoin urgent</option></select></label>
-        <button class="button button-primary" type="submit">Préparer ma demande <span>↗</span></button>
-        <p class="form-note">Le bouton ouvre votre messagerie avec la demande préparée. Aucune donnée n’est stockée sur ce site.</p>
-      </form>
+        <button class="button button-primary" type="submit">Envoyer ma demande <span>↗</span></button>
+        <p class="form-note">Votre demande est transmise à AIWorkPay via FormSubmit. Consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</p>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p></form>
     </section>
   </main>
 

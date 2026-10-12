@@ -31,7 +31,10 @@
 - Baraka Box: surplus-food marketplace using recommendations, availability forecasting, and local optimization.
 - AFUS: home-services platform with needs qualification, provider matching, and operational management.
 - Tabdal: peer-to-peer property platform with assisted search, listing qualification, and intelligent matching.
-5. AI opportunity assessment: mapping of a business process, expected automation scope, risks, required human decisions, and MVP definition.
+
+## Initial AI assessment
+
+Mapping of a business process, expected automation scope, risks, required human decisions, and MVP definition.
 
 ## Human layer
 

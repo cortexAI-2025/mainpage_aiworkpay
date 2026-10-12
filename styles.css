@@ -35,3 +35,5 @@
 .catalog-options p{margin:4px 0 0;color:var(--muted)}
 @media(max-width:950px){.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.catalog-grid{grid-template-columns:1fr}.catalog-card{padding:22px}}
+
+.catalog-details{display:inline-block;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:4px;margin-top:2px}

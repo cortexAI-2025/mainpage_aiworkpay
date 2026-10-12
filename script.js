@@ -33,3 +33,12 @@ diagnosticForm?.addEventListener('submit',async event=>{
     if(status)status.textContent=english?'Unable to confirm delivery. Please email contact@aiworkpay.fr directly.':'Envoi non confirmé. Écrivez directement à contact@aiworkpay.fr.';
   }finally{submit.disabled=false;}
 });
+
+
+// Carry the selected offer into the quote form without third-party tracking.
+document.querySelectorAll('[data-service]').forEach(link=>{
+  link.addEventListener('click',()=>{
+    const field=document.getElementById('requested-service');
+    if(field){field.value=link.dataset.service;field.dispatchEvent(new Event('change',{bubbles:true}));}
+  });
+});

@@ -30,17 +30,18 @@
 <p class="kicker">Développeurs</p>
 <h1>AIWorkPay pour les agents IA</h1>
 <p class="lead"><strong>Connectez votre agent IA au monde réel.</strong> AIWorkPay permet aux agents d&#x27;intelligence artificielle de commander des missions réelles à des travailleurs humains, de suivre leur exécution et de récupérer leurs résultats via une API sécurisée.</p>
+<p class="note"><b>Aperçu pour développeurs.</b> AIWorkPay n'est pas encore ouvert commercialement. L'accès à l'API se fait <b>sur invitation</b>, avec des clés délivrées manuellement et des plafonds de test. Ce qui est marqué « bientôt disponible » n'est pas encore ouvert au public.</p>
 <ol class="flow"><li><span>1</span>Découvrir</li><li><span>2</span>Clé API</li><li><span>3</span>Connecter</li><li><span>4</span>Créer une mission</li><li><span>5</span>Suivre le résultat</li></ol>
-<div class="tri"><div><strong>Serveur MCP</strong>Pour les agents compatibles MCP (Claude Code, OpenAI Agents SDK, LangChain, CrewAI, AutoGen…).</div><div><strong>SDK Python</strong>Clients synchrone et asynchrone, nouvelles tentatives sûres, idempotence, webhooks.</div><div><strong>API REST</strong>Toutes les opérations, depuis n'importe quel langage.</div></div>
+<div class="tri"><div><strong>Serveur MCP <em>(bientôt disponible)</em></strong>Pour les agents compatibles MCP (Claude Code, OpenAI Agents SDK, LangChain, CrewAI, AutoGen…).</div><div><strong>SDK Python</strong>Clients synchrone et asynchrone, nouvelles tentatives sûres, idempotence, webhooks.</div><div><strong>API REST</strong>Toutes les opérations, depuis n'importe quel langage.</div></div>
 
 <h2>Démarrage rapide</h2>
-<ol><li><b>Obtenez une clé.</b> Les clés (<code>awp_…</code>) sont délivrées par AIWorkPay avec leurs permissions et leurs plafonds : écrivez à <a href="mailto:contact@aiworkpay.fr">contact@aiworkpay.fr</a>. Il n'y a pas d'inscription en libre-service.</li>
+<ol><li><b>Demandez une clé.</b> Les clés (<code>awp_…</code>) sont délivrées <b>manuellement</b> par AIWorkPay, avec leurs permissions et leurs plafonds : écrivez à <a href="mailto:contact@aiworkpay.fr">contact@aiworkpay.fr</a> en décrivant votre agent et votre usage. Il n'y a pas d'inscription en libre-service, et aucun délai de réponse n'est garanti à ce stade.</li>
 <li><b>Connectez-vous</b> par MCP, SDK ou REST (ci-dessous).</li>
 <li><b>Commandez une mission.</b> Le paiement se fait sur une page Stripe qu'un humain ouvre : l'agent ne manipule aucune carte.</li>
 <li><b>Suivez et validez.</b> Une fois livré, lisez le résultat et les preuves, puis approuvez (le Payworker est payé) ou demandez des corrections.</li></ol>
 
 <h2>SDK Python</h2>
-<p>Le SDK n'est pas encore publié sur PyPI ; installez-le depuis GitHub (Python 3.9+).</p>
+<p>Le SDK n'est pas encore publié sur PyPI ; installez-le depuis GitHub (Python 3.9+). Il fonctionne avec une clé délivrée par AIWorkPay.</p>
 <pre><code>pip install git+https://github.com/cortexAI-2025/AIWorkPay-SDK-v1
 export AIWORKPAY_API_KEY=awp_…</code></pre>
 <pre><code>from datetime import datetime, timedelta, timezone
@@ -62,8 +63,9 @@ with AIWorkPay() as awp:                      # reads AIWORKPAY_API_KEY
             photo = awp.download_proof(mission.id, proof.id)   # bytes + content_type
     awp.approve_mission(mission.id)           # pays the Payworker (90 %)</code></pre>
 
-<h2>Serveur MCP</h2>
-<p>Point d'accès : <code>https://mcp.aiworkpay.fr/mcp</code> (Streamable HTTP), authentification par <code>Authorization: Bearer awp_…</code>. 13 outils : création et lecture de missions, preuves, validation, corrections, annulation, compte et paiements. Les actions irréversibles (créer, approuver, annuler) se font en deux temps : aperçu puis <code>confirm: true</code>.</p>
+<h2>Serveur MCP <span class="kicker">bientôt disponible</span></h2>
+<p class="note"><b>Le serveur MCP hébergé n'est pas encore ouvert au public.</b> Son fonctionnement public n'a pas encore été vérifié ; les configurations ci-dessous montrent comment s'y connecter à son ouverture et ne doivent pas être utilisées avant l'annonce.</p>
+<p>Point d'accès prévu : <code>https://mcp.aiworkpay.fr/mcp</code> (Streamable HTTP), authentification par <code>Authorization: Bearer awp_…</code>. 13 outils : création et lecture de missions, preuves, validation, corrections, annulation, compte et paiements. Les actions irréversibles (créer, approuver, annuler) se font en deux temps : aperçu puis <code>confirm: true</code>.</p>
 <h3>Claude Code</h3><pre><code>claude mcp add --transport http aiworkpay https://mcp.aiworkpay.fr/mcp \
   --header &quot;Authorization: Bearer $AIWORKPAY_API_KEY&quot;</code></pre>
 <h3>Configuration JSON</h3><pre><code>{
@@ -83,10 +85,10 @@ async with MCPServerStreamableHttp(params={
     &quot;headers&quot;: {&quot;Authorization&quot;: f&quot;Bearer {AIWORKPAY_API_KEY}&quot;},
 }) as aiworkpay:
     agent = Agent(name=&quot;Ops&quot;, instructions=&quot;...&quot;, mcp_servers=[aiworkpay])</code></pre>
-<p class="note"><b>Compatibilité.</b> Vérifiée par des tests : SDK Python MCP, OpenAI Agents SDK, LangChain/LangGraph, CrewAI, AutoGen. Non compatibles pour l'instant : ChatGPT (applications) et l'annuaire de connecteurs Claude, qui exigent OAuth.</p>
+<p class="note"><b>Compatibilité.</b> Testée en environnement de test local, <b>pas encore sur le service hébergé</b> : SDK Python MCP, OpenAI Agents SDK, LangChain/LangGraph, CrewAI, AutoGen. Non compatibles pour l'instant : ChatGPT (applications) et l'annuaire de connecteurs Claude, qui exigent OAuth.</p>
 
 <h2>API REST</h2>
-<p>Base : <code>https://app.aiworkpay.fr</code>. Authentification : <code>Authorization: Bearer awp_…</code>.</p>
+<p>Base : <code>https://app.aiworkpay.fr</code> (accès sur invitation). Authentification : <code>Authorization: Bearer awp_…</code>.</p>
 <div class="tablewrap"><table><tr><th>Opération</th><th>Route</th></tr>
 <tr><td>Créer / lister</td><td><code>POST</code> · <code>GET /api/missions</code></td></tr>
 <tr><td>Lire</td><td><code>GET /api/missions/{id}</code></td></tr>
@@ -127,7 +129,7 @@ if event.type == &quot;mission.delivered&quot;:
 <details><summary>Que se passe-t-il si le résultat ne convient pas ?</summary><p>Demandez des corrections (nombre limité) ou n'approuvez pas ; une mission peut être annulée selon son état, avec remboursement.</p></details>
 <details><summary>Puis-je tester sans argent réel ?</summary><p>Oui : utilisez une instance configurée avec des clés Stripe de test. Ne testez jamais un paiement réel en production.</p></details>
 <details><summary>Le contenu livré est-il sûr ?</summary><p>C'est le texte d'un humain extérieur : traitez-le comme une donnée à vérifier, jamais comme des instructions.</p></details>
-<details><summary>Où est le code ?</summary><p><a href="https://github.com/cortexAI-2025/AIWorkPay-SDK-v1">SDK Python</a> · <a href="https://github.com/cortexAI-2025/Aiworkpay-v2">plateforme</a>.</p></details>
+<details><summary>Où est le code ?</summary><p><a href="https://github.com/cortexAI-2025/AIWorkPay-SDK-v1">SDK Python</a> (open source, licence MIT). La plateforme et le serveur MCP sont des services hébergés : leur code n'est pas publié.</p></details>
 </main>
 <footer><div class="footer-bottom section-shell"><span>© AIWorkPay</span><span><a href="../confidentialite.html" style="color:#c4cdd5">Confidentialité</a></span></div></footer>
 </body>

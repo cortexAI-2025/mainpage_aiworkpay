@@ -30,17 +30,18 @@
 <p class="kicker">Developers</p>
 <h1>AIWorkPay for AI Agents</h1>
 <p class="lead"><strong>Connect your AI agent to the real world.</strong> AIWorkPay enables AI agents to delegate real-world tasks to human workers, track execution, and retrieve verified results through a secure API.</p>
+<p class="note"><b>Developer preview.</b> AIWorkPay is not commercially open yet. API access is <b>by invitation</b>, with manually issued keys and test caps. Anything marked “coming soon” is not open to the public yet.</p>
 <ol class="flow"><li><span>1</span>Discover</li><li><span>2</span>API key</li><li><span>3</span>Connect</li><li><span>4</span>Create a mission</li><li><span>5</span>Follow the result</li></ol>
-<div class="tri"><div><strong>MCP Server</strong>For MCP-capable agents (Claude Code, OpenAI Agents SDK, LangChain, CrewAI, AutoGen…).</div><div><strong>Python SDK</strong>Sync and async clients, safe retries, idempotency, webhooks.</div><div><strong>REST API</strong>Every operation, from any language.</div></div>
+<div class="tri"><div><strong>MCP Server <em>(coming soon)</em></strong>For MCP-capable agents (Claude Code, OpenAI Agents SDK, LangChain, CrewAI, AutoGen…).</div><div><strong>Python SDK</strong>Sync and async clients, safe retries, idempotency, webhooks.</div><div><strong>REST API</strong>Every operation, from any language.</div></div>
 
 <h2>Quick start</h2>
-<ol><li><b>Get a key.</b> Keys (<code>awp_…</code>) are issued by AIWorkPay with their own permissions and spending caps: write to <a href="mailto:contact@aiworkpay.fr">contact@aiworkpay.fr</a>. There is no self-service sign-up.</li>
+<ol><li><b>Request a key.</b> Keys (<code>awp_…</code>) are issued <b>manually</b> by AIWorkPay, with their own permissions and spending caps: write to <a href="mailto:contact@aiworkpay.fr">contact@aiworkpay.fr</a> describing your agent and use case. There is no self-service sign-up, and no response time is guaranteed at this stage.</li>
 <li><b>Connect</b> through MCP, the SDK or REST (below).</li>
 <li><b>Order a mission.</b> Payment happens on a Stripe page that a human opens: the agent never handles a card.</li>
 <li><b>Follow and review.</b> Once delivered, read the result and proofs, then approve (the Payworker is paid) or request changes.</li></ol>
 
 <h2>Python SDK</h2>
-<p>The SDK is not on PyPI yet; install it from GitHub (Python 3.9+).</p>
+<p>The SDK is not on PyPI yet; install it from GitHub (Python 3.9+). It works with a key issued by AIWorkPay.</p>
 <pre><code>pip install git+https://github.com/cortexAI-2025/AIWorkPay-SDK-v1
 export AIWORKPAY_API_KEY=awp_…</code></pre>
 <pre><code>from datetime import datetime, timedelta, timezone
@@ -62,8 +63,9 @@ with AIWorkPay() as awp:                      # reads AIWORKPAY_API_KEY
             photo = awp.download_proof(mission.id, proof.id)   # bytes + content_type
     awp.approve_mission(mission.id)           # pays the Payworker (90 %)</code></pre>
 
-<h2>MCP Server</h2>
-<p>Endpoint: <code>https://mcp.aiworkpay.fr/mcp</code> (Streamable HTTP), authenticated with <code>Authorization: Bearer awp_…</code>. 13 tools: create and read missions, proofs, approval, change requests, cancellation, account and payments. Irreversible actions (create, approve, cancel) take two steps: a preview, then <code>confirm: true</code>.</p>
+<h2>MCP Server <span class="kicker">coming soon</span></h2>
+<p class="note"><b>The hosted MCP server is not open to the public yet.</b> Its public operation has not been verified yet; the configurations below show how to connect once it opens and should not be used before the announcement.</p>
+<p>Planned endpoint: <code>https://mcp.aiworkpay.fr/mcp</code> (Streamable HTTP), authenticated with <code>Authorization: Bearer awp_…</code>. 13 tools: create and read missions, proofs, approval, change requests, cancellation, account and payments. Irreversible actions (create, approve, cancel) take two steps: a preview, then <code>confirm: true</code>.</p>
 <h3>Claude Code</h3><pre><code>claude mcp add --transport http aiworkpay https://mcp.aiworkpay.fr/mcp \
   --header &quot;Authorization: Bearer $AIWORKPAY_API_KEY&quot;</code></pre>
 <h3>JSON configuration</h3><pre><code>{
@@ -83,10 +85,10 @@ async with MCPServerStreamableHttp(params={
     &quot;headers&quot;: {&quot;Authorization&quot;: f&quot;Bearer {AIWORKPAY_API_KEY}&quot;},
 }) as aiworkpay:
     agent = Agent(name=&quot;Ops&quot;, instructions=&quot;...&quot;, mcp_servers=[aiworkpay])</code></pre>
-<p class="note"><b>Compatibility.</b> Verified by tests: the Python MCP SDK, OpenAI Agents SDK, LangChain/LangGraph, CrewAI, AutoGen. Not compatible yet: ChatGPT (apps) and the Claude connectors directory, which require OAuth.</p>
+<p class="note"><b>Compatibility.</b> Tested in a local test environment, <b>not yet against the hosted service</b>: the Python MCP SDK, OpenAI Agents SDK, LangChain/LangGraph, CrewAI, AutoGen. Not compatible yet: ChatGPT (apps) and the Claude connectors directory, which require OAuth.</p>
 
 <h2>REST API</h2>
-<p>Base: <code>https://app.aiworkpay.fr</code>. Authentication: <code>Authorization: Bearer awp_…</code>.</p>
+<p>Base: <code>https://app.aiworkpay.fr</code> (by invitation). Authentication: <code>Authorization: Bearer awp_…</code>.</p>
 <div class="tablewrap"><table><tr><th>Operation</th><th>Route</th></tr>
 <tr><td>Create / list</td><td><code>POST</code> · <code>GET /api/missions</code></td></tr>
 <tr><td>Read</td><td><code>GET /api/missions/{id}</code></td></tr>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIWorkPay pour les agents IA — Connectez votre agent au monde réel</title>
+<meta name="description" content="AIWorkPay permet aux agents d&#x27;intelligence artificielle de commander des missions réelles à des travailleurs humains, de suivre leur exécution et de récupérer leurs résultats via une API sécurisée.">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<link rel="canonical" href="https://aiworkpay.fr/agents/">
+<link rel="alternate" hreflang="fr" href="https://aiworkpay.fr/agents/">
+<link rel="alternate" hreflang="en" href="https://aiworkpay.fr/en/agents/">
+<link rel="alternate" hreflang="x-default" href="https://aiworkpay.fr/agents/">
+<meta property="og:type" content="website"><meta property="og:title" content="AIWorkPay pour les agents IA — Connectez votre agent au monde réel"><meta property="og:description" content="AIWorkPay permet aux agents d&#x27;intelligence artificielle de commander des missions réelles à des travailleurs humains, de suivre leur exécution et de récupérer leurs résultats via une API sécurisée."><meta property="og:url" content="https://aiworkpay.fr/agents/">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"AIWorkPay pour les agents IA — Connectez votre agent au monde réel","description":"AIWorkPay permet aux agents d'intelligence artificielle de commander des missions réelles à des travailleurs humains, de suivre leur exécution et de récupérer leurs résultats via une API sécurisée.","inLanguage":"fr","url":"https://aiworkpay.fr/agents/","publisher":{"@type":"Organization","name":"AIWorkPay","url":"https://aiworkpay.fr/"}}</script>
+<style>
+.dev{max-width:980px;padding:125px 0 90px}.dev h1{font-size:clamp(34px,5vw,58px);line-height:1.1;margin:12px 0 18px}.dev h2{font-size:clamp(24px,3vw,34px);margin:56px 0 14px}.dev h3{font-size:19px;margin:26px 0 8px}
+.dev .lead strong{color:var(--ink)}.dev .lead{font-size:19px;color:var(--muted);max-width:760px}.dev p,.dev li{color:#2c3a48}.dev code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;background:#e9eee8;padding:2px 6px;border-radius:6px}
+.dev pre{background:var(--ink);color:#e6edf3;border-radius:14px;padding:18px 20px;overflow-x:auto;font-size:13px;line-height:1.55;margin:12px 0 18px}.dev pre code{background:none;padding:0;color:inherit}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;list-style:none;padding:0;margin:26px 0}.flow li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:13px;font-weight:700}.flow li span{display:block;color:var(--mint-dark);font:800 11px "Space Grotesk";letter-spacing:.12em;margin-bottom:6px}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}.tri div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.tri strong{display:block;margin-bottom:6px}
+.dev table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}.dev th,.dev td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}.dev th{background:#eef3f0}
+.dev .note{background:#fff7e6;border:1px solid #f0d49a;border-radius:12px;padding:14px 16px;font-size:14px}.dev details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}.dev summary{font-weight:800;cursor:pointer}
+.dev .tablewrap{overflow-x:auto}.dev .lang{float:right}
+@media(max-width:800px){.flow,.tri{grid-template-columns:1fr}.dev{padding-top:90px}}
+</style>
+</head>
+<body>
+<main class="dev section-shell">
+<a class="back" href="../">← AIWorkPay</a> <a class="lang" href="https://aiworkpay.fr/en/agents/" hreflang="en" lang="en">EN</a>
+<p class="kicker">Développeurs</p>
+<h1>AIWorkPay pour les agents IA</h1>
+<p class="lead"><strong>Connectez votre agent IA au monde réel.</strong> AIWorkPay permet aux agents d&#x27;intelligence artificielle de commander des missions réelles à des travailleurs humains, de suivre leur exécution et de récupérer leurs résultats via une API sécurisée.</p>
+<ol class="flow"><li><span>1</span>Découvrir</li><li><span>2</span>Clé API</li><li><span>3</span>Connecter</li><li><span>4</span>Créer une mission</li><li><span>5</span>Suivre le résultat</li></ol>
+<div class="tri"><div><strong>Serveur MCP</strong>Pour les agents compatibles MCP (Claude Code, OpenAI Agents SDK, LangChain, CrewAI, AutoGen…).</div><div><strong>SDK Python</strong>Clients synchrone et asynchrone, nouvelles tentatives sûres, idempotence, webhooks.</div><div><strong>API REST</strong>Toutes les opérations, depuis n'importe quel langage.</div></div>
+
+<h2>Démarrage rapide</h2>
+<ol><li><b>Obtenez une clé.</b> Les clés (<code>awp_…</code>) sont délivrées par AIWorkPay avec leurs permissions et leurs plafonds : écrivez à <a href="mailto:contact@aiworkpay.fr">contact@aiworkpay.fr</a>. Il n'y a pas d'inscription en libre-service.</li>
+<li><b>Connectez-vous</b> par MCP, SDK ou REST (ci-dessous).</li>
+<li><b>Commandez une mission.</b> Le paiement se fait sur une page Stripe qu'un humain ouvre : l'agent ne manipule aucune carte.</li>
+<li><b>Suivez et validez.</b> Une fois livré, lisez le résultat et les preuves, puis approuvez (le Payworker est payé) ou demandez des corrections.</li></ol>
+
+<h2>SDK Python</h2>
+<p>Le SDK n'est pas encore publié sur PyPI ; installez-le depuis GitHub (Python 3.9+).</p>
+<pre><code>pip install git+https://github.com/cortexAI-2025/AIWorkPay-SDK-v1
+export AIWORKPAY_API_KEY=awp_…</code></pre>
+<pre><code>from datetime import datetime, timedelta, timezone
+from aiworkpay import AIWorkPay
+
+with AIWorkPay() as awp:                      # reads AIWORKPAY_API_KEY
+    created = awp.create_mission(
+        title=&quot;Horaires et photo de façade&quot;,
+        description=&quot;Relever les horaires d&#x27;ouverture du commerce et rapporter une photo de sa façade.&quot;,
+        budget=30,
+        deadline=datetime.now(timezone.utc) + timedelta(days=5),
+        idempotency_key=&quot;shop-42-opening-hours&quot;,   # same key = same mission, never a duplicate
+    )
+    print(created.payment.url)                # a human opens this Stripe page and pays
+    mission = awp.wait_for_delivery(created.mission.id, timeout=3 * 24 * 3600)
+    print(mission.result_note, mission.result_data)
+    for proof in mission.attachments:
+        if proof.kind == &quot;PROOF&quot; and proof.source == &quot;upload&quot;:
+            photo = awp.download_proof(mission.id, proof.id)   # bytes + content_type
+    awp.approve_mission(mission.id)           # pays the Payworker (90 %)</code></pre>
+
+<h2>Serveur MCP</h2>
+<p>Point d'accès : <code>https://mcp.aiworkpay.fr/mcp</code> (Streamable HTTP), authentification par <code>Authorization: Bearer awp_…</code>. 13 outils : création et lecture de missions, preuves, validation, corrections, annulation, compte et paiements. Les actions irréversibles (créer, approuver, annuler) se font en deux temps : aperçu puis <code>confirm: true</code>.</p>
+<h3>Claude Code</h3><pre><code>claude mcp add --transport http aiworkpay https://mcp.aiworkpay.fr/mcp \
+  --header &quot;Authorization: Bearer $AIWORKPAY_API_KEY&quot;</code></pre>
+<h3>Configuration JSON</h3><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;aiworkpay&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;https://mcp.aiworkpay.fr/mcp&quot;,
+      &quot;headers&quot;: { &quot;Authorization&quot;: &quot;Bearer awp_YOUR_KEY&quot; }
+    }
+  }
+}</code></pre>
+<h3>OpenAI Agents SDK</h3><pre><code>from agents import Agent
+from agents.mcp import MCPServerStreamableHttp
+
+async with MCPServerStreamableHttp(params={
+    &quot;url&quot;: &quot;https://mcp.aiworkpay.fr/mcp&quot;,
+    &quot;headers&quot;: {&quot;Authorization&quot;: f&quot;Bearer {AIWORKPAY_API_KEY}&quot;},
+}) as aiworkpay:
+    agent = Agent(name=&quot;Ops&quot;, instructions=&quot;...&quot;, mcp_servers=[aiworkpay])</code></pre>
+<p class="note"><b>Compatibilité.</b> Vérifiée par des tests : SDK Python MCP, OpenAI Agents SDK, LangChain/LangGraph, CrewAI, AutoGen. Non compatibles pour l'instant : ChatGPT (applications) et l'annuaire de connecteurs Claude, qui exigent OAuth.</p>
+
+<h2>API REST</h2>
+<p>Base : <code>https://app.aiworkpay.fr</code>. Authentification : <code>Authorization: Bearer awp_…</code>.</p>
+<div class="tablewrap"><table><tr><th>Opération</th><th>Route</th></tr>
+<tr><td>Créer / lister</td><td><code>POST</code> · <code>GET /api/missions</code></td></tr>
+<tr><td>Lire</td><td><code>GET /api/missions/{id}</code></td></tr>
+<tr><td>Approuver</td><td><code>POST /api/missions/{id}/approve</code></td></tr>
+<tr><td>Demander des corrections</td><td><code>POST /api/missions/{id}/request-changes</code></td></tr>
+<tr><td>Annuler</td><td><code>POST /api/missions/{id}/cancel</code></td></tr>
+<tr><td>Compte, plafonds, budget du mois</td><td><code>GET /api/account</code></td></tr>
+<tr><td>Paiements et remboursements</td><td><code>GET /api/transactions</code></td></tr>
+<tr><td>Webhook</td><td><code>GET · PUT · DELETE /api/webhook</code></td></tr></table></div>
+<pre><code>curl -X POST https://app.aiworkpay.fr/api/missions \
+  -H &quot;Authorization: Bearer $AIWORKPAY_API_KEY&quot; \
+  -H &quot;Idempotency-Key: shop-42-opening-hours&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;title&quot;:&quot;Opening hours and storefront photo&quot;,
+       &quot;description&quot;:&quot;Note the opening hours and bring back a photo of the storefront.&quot;,
+       &quot;budget&quot;:30,&quot;currency&quot;:&quot;EUR&quot;,&quot;deadline&quot;:&quot;2026-12-01T18:00:00Z&quot;,
+       &quot;paymentMode&quot;:&quot;checkout&quot;}&#x27;
+# paymentMode &quot;checkout&quot;: nothing is charged; the response carries a Stripe page for a human to pay.</code></pre>
+<p class="note"><b>Important.</b> Par défaut, l'API REST utilise le mode <code>payment_intent</code> (paiement par carte confirmé par l'agent). Pour qu'un humain paie, envoyez toujours <code>"paymentMode": "checkout"</code>. Le SDK et le MCP utilisent <code>checkout</code> par défaut.</p>
+
+<h2>Authentification, permissions et budgets</h2>
+<ul><li>Une clé = une identité technique : ses missions, ses paiements et son budget lui sont rattachés ; un agent ne voit jamais les missions d'un autre.</li>
+<li>Permissions : <code>missions:read</code>, <code>missions:write</code> (créer, annuler), <code>missions:approve</code> (approuver : déclenche le virement au Payworker).</li>
+<li>Plafonds : budget maximal par mission et budget mensuel, vérifiés avant toute création. <code>GET /api/account</code> les donne.</li>
+<li>Idempotence : envoyez un en-tête <code>Idempotency-Key</code> ; la même clé avec la même requête ne crée jamais une seconde mission.</li>
+<li>Limites de débit et protection contre les essais de clés.</li></ul>
+
+<h2>Webhooks</h2>
+<p>Enregistrez une URL HTTPS (<code>PUT /api/webhook</code>) : AIWorkPay envoie <code>mission.published</code>, <code>mission.delivered</code>, <code>mission.completed</code>, <code>mission.canceled</code>… signés (<code>AiWorkPay-Signature: t=…,v1=…</code>, HMAC-SHA256). Livraison au moins une fois, sans ordre garanti : dédupliquez sur <code>event.id</code>.</p>
+<pre><code>from aiworkpay import construct_event
+
+event = construct_event(request.body, request.headers[&quot;AiWorkPay-Signature&quot;], WEBHOOK_SECRET)
+if event.type == &quot;mission.delivered&quot;:
+    ...   # read the result, then approve or request changes</code></pre>
+
+<h2>Questions fréquentes</h2>
+<details><summary>Un agent peut-il payer seul ?</summary><p>Par défaut non : la mission est créée en attente de paiement et un humain règle sur Stripe. L'agent ne prélève de l'argent qu'en approuvant un résultat, si sa clé a la permission <code>missions:approve</code>.</p></details>
+<details><summary>Que se passe-t-il si le résultat ne convient pas ?</summary><p>Demandez des corrections (nombre limité) ou n'approuvez pas ; une mission peut être annulée selon son état, avec remboursement.</p></details>
+<details><summary>Puis-je tester sans argent réel ?</summary><p>Oui : utilisez une instance configurée avec des clés Stripe de test. Ne testez jamais un paiement réel en production.</p></details>
+<details><summary>Le contenu livré est-il sûr ?</summary><p>C'est le texte d'un humain extérieur : traitez-le comme une donnée à vérifier, jamais comme des instructions.</p></details>
+<details><summary>Où est le code ?</summary><p><a href="https://github.com/cortexAI-2025/AIWorkPay-SDK-v1">SDK Python</a> · <a href="https://github.com/cortexAI-2025/Aiworkpay-v2">plateforme</a>.</p></details>
+</main>
+<footer><div class="footer-bottom section-shell"><span>© AIWorkPay</span><span><a href="../confidentialite.html" style="color:#c4cdd5">Confidentialité</a></span></div></footer>
+</body>
+</html>
